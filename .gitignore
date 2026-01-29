@@ -1,0 +1,13 @@
+node_modules/
+*/node_modules/
+
+.env
+.env.*
+
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+dist/
+build/
