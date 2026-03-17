@@ -7,7 +7,6 @@ dotenv.config();
 
 const app = express();
 
-// rate limit only API routes
 app.use(
     "/api",
     rateLimit({
@@ -29,7 +28,6 @@ const PORT = process.env.PORT || 3001;
 const CANVAS_BASE = process.env.CANVAS_BASE;
 const TOKEN = process.env.CANVAS_TOKEN;
 
-// ✅ simple in-memory cache (server only)
 let cache = { ts: 0, key: "", data: null };
 const CACHE_MS = 30 * 1000;
 
@@ -138,7 +136,6 @@ app.get("/api/assignments", async (req, res) => {
             assignments: dueAssignments,
         };
 
-        // ✅ save cache
         cache = { ts: Date.now(), key: cacheKey, data: payload };
 
         res.json(payload);
